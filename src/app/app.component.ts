@@ -6,5 +6,6 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'app';
+  title = 'Front-end Angular Js';
+  public descricao: string = "Interface Front-end para interagir com o serviço REST 'SpaceLaunches'."
 }
