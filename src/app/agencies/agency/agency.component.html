@@ -1,3 +1,21 @@
-<p (click)="buscar()">
-  agency works!
-</p>
+<form>
+	<span>Nome da agência:</span>
+	<input type="text" class="form-control" placeholder="Ex:Brazilian Space Agency"
+	#termoPesquisa (keyup)="buscar(termoPesquisa.value)">
+	<hr/>
+</form>
+
+<div *ngFor="let agency of agencies">
+<h3>{{agency.name}}</h3>
+<ul>
+	<li>ID: {{agency.id}}</li>
+	<li>Abreviation: {{agency.abbrev}}</li>
+	<li>Type: {{agency.type}}</li>
+	<li>CountryCode: {{agency.countryCode}}</li>
+	<li>WikiUrl: <a href= {{agency.wikiURL}}>{{agency.wikiURL}}</a></li>
+	<li>InfoUrl: <a href="{{agency.infoURL}}">{{agency.infoURL}}</a></li>
+	<li>IsLsp: {{agency.islsp}}</li>
+	<li>Changed: {{agency.changed}}</li>
+</ul>
+<hr/>
+</div>

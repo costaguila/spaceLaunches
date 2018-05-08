@@ -9,15 +9,24 @@ import { Agency } from '../agency.model';
 })
 export class AgencyComponent implements OnInit {
 
-  private agencies: any
+  public agencies: Agency[]
 
   constructor(private servico : AgencyService) { }
 
   ngOnInit() {
-    this.agencies = this.servico.getAgencies()
+   this.servico.getAllAgencies()
+   .then( (minhasAgencias:any) =>{
+      console.log(minhasAgencias.agencies)
+      this.agencies = minhasAgencias
+   } )
   }
-  public buscar(){
-    console.log(this.agencies)
+
+
+  public buscar(nameAgency: string ){
+    this.servico.getAgenciesByName(nameAgency)
+      .subscribe((Agencias : Agency[]) => {
+        this.agencies = Agencias
+      } )
 
   }
 }
