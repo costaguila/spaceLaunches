@@ -1,21 +1,38 @@
-<form>
-	<span>Nome da agência:</span>
-	<input type="text" class="form-control" placeholder="Ex:Brazilian Space Agency"
-	#termoPesquisa (keyup)="buscar(termoPesquisa.value)">
-	<hr/>
-</form>
 
-<div *ngFor="let agency of agencies">
-<h3>{{agency.name}}</h3>
-<ul>
-	<li>ID: {{agency.id}}</li>
-	<li>Abreviation: {{agency.abbrev}}</li>
-	<li>Type: {{agency.type}}</li>
-	<li>CountryCode: {{agency.countryCode}}</li>
-	<li>WikiUrl: <a href= {{agency.wikiURL}}>{{agency.wikiURL}}</a></li>
-	<li>InfoUrl: <a href="{{agency.infoURL}}">{{agency.infoURL}}</a></li>
-	<li>IsLsp: {{agency.islsp}}</li>
-	<li>Changed: {{agency.changed}}</li>
-</ul>
-<hr/>
+<div class="row">
+	<div class="col-md-12">
+		<form>
+			<span>Nome da agência:</span>
+			<input type="text" class="form-control" placeholder="Ex:Brazilian Space Agency"
+			#termoPesquisa (keyup)="buscar(termoPesquisa.value)">
+			<hr/>
+		</form>
+	</div>
+</div>
+
+<div class="agency" *ngFor="let agency of agencies">
+	<div class="row">	
+	 <div class="col-md-12">
+		<h3 class="font-weight-bold bg-info">{{agency.name}}</h3>
+	 </div>
+	</div>
+	<div class="row">
+		<div class="col-md-6">
+			<ul>
+				<li>ID: {{agency.id}}</li>
+				<li>Abreviation: {{agency.abbrev}}</li>
+				<li>Type: {{agency.type}}</li>
+				<li>CountryCode: {{agency.countryCode}}</li>
+			</ul>
+		</div>
+		<div class="col-md-6">
+			<ul>
+				<li>WikiUrl: <a href= {{agency.wikiURL}}>{{agency.wikiURL}}</a></li>
+				<li>InfoUrl: <a href="{{agency.infoURL}}">{{agency.infoURL}}</a></li>
+				<li>IsLsp: {{agency.islsp}}</li>
+				<li>Changed: {{agency.changed}}</li>
+			</ul>
+		</div>
+	</div>
+	<hr/>
 </div>
