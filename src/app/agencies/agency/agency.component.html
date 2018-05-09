@@ -36,3 +36,11 @@
 	</div>
 	<hr/>
 </div>
+
+<div *ngIf="success &&  agencies.length === 0 ">
+	<p>Não existem agencias que correspondem aos dados fornecidos.</p>
+</div>
+
+<div *ngIf="!success">
+	<p>Não foi possível recuperar dados do serviço REST. Indisponibilidade do servidor ou nenhuma conexão com a internet.</p>
+</div>

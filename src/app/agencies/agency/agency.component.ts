@@ -10,23 +10,35 @@ import { Agency } from '../agency.model';
 export class AgencyComponent implements OnInit {
 
   public agencies: Agency[]
+  private success: boolean 
 
-  constructor(private servico : AgencyService) { }
+  constructor(private servico : AgencyService) { 
+    this.agencies = []
+    this.success = true 
+  }
 
   ngOnInit() {
    this.servico.getAllAgencies()
    .then( (minhasAgencias:any) =>{
-      console.log(minhasAgencias.agencies)
       this.agencies = minhasAgencias
+      this.success = true
    } )
+   .catch( (e) =>{
+      this.agencies = []
+      this.success = false
+   })
   }
-
 
   public buscar(nameAgency: string ){
     this.servico.getAgenciesByName(nameAgency)
       .subscribe((Agencias : Agency[]) => {
         this.agencies = Agencias
-      } )
+        this.success = true
+      },
+      (erro) => {
+        this.agencies = []
+        this.success = false
+       } )
 
   }
 }

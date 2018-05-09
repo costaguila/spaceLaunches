@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core'
 import { Http, Response } from '@angular/http'
 import { Observable } from 'rxjs/Observable'
 import 'rxjs/add/operator/map'
+import 'rxjs/add/operator/catch'
 
 import { Agency } from './agency.model';
 
@@ -20,12 +21,10 @@ export class AgencyService {
       .then(
         (resposta: any) => {
           return resposta.json().agencies.sort(this.comparar)
-      },
-      (erro: any) => {
-        console.log(erro);
-        return erro;
-      }
-    )
+      })
+      .catch((erro) => {
+        throw  erro;
+      })
   }
 
    public getAgenciesByName(name: string):Observable<Agency[]> {
@@ -33,6 +32,9 @@ export class AgencyService {
       .get(`${this.apiURL}?name=${name}`)
         .map( (resposta: Response) => {
           return resposta.json().agencies.sort(this.comparar)
+        })
+        .catch( (error) => { 
+           return Observable.throw(error) 
         })
   }
 
