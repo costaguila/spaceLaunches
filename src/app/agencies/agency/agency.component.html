@@ -21,7 +21,7 @@
 			<ul>
 				<li>ID: {{agency.id}}</li>
 				<li>Abreviation: {{agency.abbrev}}</li>
-				<li>Type: {{agency.type}}</li>
+				<li>Tipo: {{agency.type | agencyTypeTransform}}</li>
 				<li>CountryCode: {{agency.countryCode}}</li>
 			</ul>
 		</div>
@@ -29,7 +29,7 @@
 			<ul>
 				<li>WikiUrl: <a href= {{agency.wikiURL}}>{{agency.wikiURL}}</a></li>
 				<li>InfoUrl: <a href="{{agency.infoURL}}">{{agency.infoURL}}</a></li>
-				<li>IsLsp: {{agency.islsp}}</li>
+				<li>Realiza lançamentos? {{agency.islsp | boolTransform }}</li>
 				<li>Changed: {{agency.changed}}</li>
 			</ul>
 		</div>
