@@ -6,10 +6,12 @@ import { RouterModule, Routes } from '@angular/router';
 import { NavegationModule } from "./navegation/navegation.module";
 import { AgenciesModule } from "./agencies/agencies.module";
 import { AgencyComponent } from "./agencies/agency/agency.component";
+import { HomeComponent } from "./agencies/home/home.component";
 import { AppComponent } from './app.component';
 
 const appRoutes: Routes = [
-  { path: '', component: AgencyComponent }
+  { path: '', component: HomeComponent },
+  { path: 'agency', component: AgencyComponent },
 ];
 
 @NgModule({
